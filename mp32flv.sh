@@ -9,13 +9,13 @@ out=$(echo "$1" | sed 's/mp3/flv/')
 bgr=/tmp/background.jpg
 filename=$(echo "$1" | tr -d '.mp3' | tr '[:punct:]' ' ')
 convert \
-  -size 320x240 \
+  -size 426x240 \
   xc:black -fill white \
   -gravity center -draw "text 0,0 '$filename'" \
   "$bgr"
 
 # ffmpeg convert command
-ffmpeg -loop_input -r 1 -i "$bgr" -i "$1" -acodec copy -shortest -qscale 11 -s 320x240 "$out"
+ffmpeg -loop_input -r 1 -i "$bgr" -i "$1" -acodec copy -shortest -qscale 11 -s 426x240 "$out"
 
 # Delete background file
 rm "$bgr"
