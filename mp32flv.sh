@@ -1,13 +1,17 @@
 #!/bin/bash
-# Requirements: sed, tr, convert, ffmpeg
+# Requirements: sed, convert, ffmpeg
 # Usage: mp32flv input.mp3
 
-# Output file - change file extension from .mp3 to .flv
+# Prepare output file i.e. change file extension from .mp3 to .flv
 out=$(echo "$1" | sed 's/mp3/flv/')
 
-# Creating black background w/ white text i.e. filename
+# Prepare background variable / JPEG image
 bgr=/tmp/background.jpg
-filename=$(echo "$1" | tr -d '.mp3' | tr '[:punct:]' ' ')
+
+# Remove extension and punctuation marks from filename
+filename=$(echo "$1" | sed 's/\.mp3//' | sed 's/[[:punct:]]/ /g')
+
+# Create background image from filename as white text on black background
 convert \
   -size 426x240 \
   xc:black -fill white \
