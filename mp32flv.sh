@@ -1,5 +1,5 @@
 #!/bin/bash
-# Requirements: sed, convert, ffmpeg
+# Requirements: sed, imagemagick, ffmpeg
 # Usage: mp32flv input.mp3
 
 # Prepare output file i.e. change file extension from .mp3 to .flv
