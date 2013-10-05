@@ -1,6 +1,6 @@
 #!/bin/bash
 # Requirements: sed, imagemagick, ffmpeg
-# Usage: mp32flv input.mp3
+# Usage: encode4yt input.mp3
 
 # Prepare output file i.e. change file extension from .mp3 to .flv
 out=$(echo "$1" | sed 's/mp3/mp4/')
