@@ -1,15 +1,18 @@
 #!/bin/bash
 # Requirements: sed, imagemagick, ffmpeg
-# Usage: encode4yt input.mp3
+# Usage: encode4yt input
 
-# Prepare output file i.e. change file extension from .mp3 to .flv
-out=$(echo "$1" | sed 's/mp3/mp4/')
+# Prepare output file:
+# 1) Find out extension of input file
+ext="${1##*.}"
+# 2) Change extension of output file from to mp4
+out=$(echo "$1" | sed "s/$ext/mp4/")
 
 # Prepare background variable / PNG image
 bgr=/tmp/background.png
 
 # Remove extension and punctuation marks from filename
-filename=$(echo "$1" | sed 's/\.mp3//' | sed 's/[[:punct:]]/ /g')
+filename=$(echo "$1" | sed "s/$ext//" | sed 's/[[:punct:]]/ /g')
 
 # Create background image from filename as white text on black background
 convert \
@@ -18,7 +21,7 @@ convert \
   -gravity center -draw "text 0,0 '$filename'" \
   "$bgr"
 
-# ffmpeg convert command
+# ffmpeg encode command
 ffmpeg \
   -f image2 -loop 1 -framerate 1 -i "$bgr" -i "$1" \
   -c:v libx264 -preset medium -tune stillimage -crf 18 \
