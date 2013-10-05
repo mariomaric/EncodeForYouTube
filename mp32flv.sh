@@ -19,7 +19,7 @@ convert \
   "$bgr"
 
 # ffmpeg convert command
-ffmpeg -loop_input -r 1 -i "$bgr" -i "$1" -acodec copy -shortest -qscale 11 -s 426x240 "$out"
+ffmpeg -f image2 -loop 1 -framerate 1 -i "$bgr" -i "$1" -codec:a copy -shortest -q:v 11 -s 426x240 "$out"
 
 # Delete background file
 rm "$bgr"
