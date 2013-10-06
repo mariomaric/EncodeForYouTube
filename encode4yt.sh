@@ -16,11 +16,11 @@ bgr=/tmp/background.png
 # 2.2) Remove extension and punctuation marks from filename
 filename=$(echo "$1" | sed "s/$ext//" | sed 's/[[:punct:]]/ /g')
 
-# 2.3) Create background image from filename as white text on black background
+# 2.3) Create background image using filename as white text on black background
 convert \
   -size 426x240 \
-  xc:black -fill white \
-  -gravity center -draw "text 0,0 '$filename'" \
+  -background black -fill white \
+  -gravity center caption:"$filename" \
   "$bgr"
 
 # 3) ffmpeg encode command
