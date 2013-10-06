@@ -3,7 +3,7 @@
 # Usage: encode4yt input
 
 # 1) Prepare output file:
-# 1.1) Find out extension of input file
+# 1.1) Find out extension of input audio file
 ext="${1##*.}"
 
 # 1.2) Set up extension of output file to mp4
@@ -23,14 +23,14 @@ convert \
   -gravity center caption:"$filename" \
   "$bgr"
 
-# 3) ffmpeg encode command
+# 3) Create video with background image and input audio file
 ffmpeg \
   -f image2 -loop 1 -framerate 1 -i "$bgr" -i "$1" \
   -c:v libx264 -preset medium -tune stillimage -crf 18 \
   -c:a copy -shortest \
   -pix_fmt yuv420p -s 426x240 "$out"
 
-# 4) Delete background file
+# 4) Delete background image
 rm "$bgr"
 
 exit
