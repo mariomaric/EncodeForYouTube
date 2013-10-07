@@ -9,6 +9,9 @@ ext="${1##*.}"
 # 1.2) Set up extension of output file to mp4
 out=$(echo "$1" | sed "s/$ext/mp4/")
 
+# 1.3) Set up size for background image and video
+size=426x240
+
 # 2) Prepare background image:
 # 2.1) Create variable with PNG image location
 bgr=/tmp/background.png
@@ -18,7 +21,7 @@ filename=$(echo "$1" | sed "s/$ext//" | sed 's/[[:punct:]]/ /g')
 
 # 2.3) Create background image using filename as white text on black background
 convert \
-  -size 426x240 \
+  -size "$size" \
   -background black -fill white \
   -gravity center caption:"$filename" \
   "$bgr"
@@ -28,7 +31,7 @@ ffmpeg \
   -f image2 -loop 1 -framerate 1 -i "$bgr" -i "$1" \
   -c:v libx264 -preset medium -tune stillimage -crf 18 \
   -c:a copy -shortest \
-  -pix_fmt yuv420p -s 426x240 "$out"
+  -pix_fmt yuv420p -s "$size" "$out"
 
 # 4) Delete background image
 rm "$bgr"
