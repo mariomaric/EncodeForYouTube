@@ -10,7 +10,7 @@ ext="${1##*.}"
 out=$(echo "$1" | sed "s/$ext/mp4/")
 
 # 1.3) Set up size for background image and video
-size=426x240
+size=1920x1080
 
 # 2) Prepare background image:
 # 2.1) Create variable with PNG image location
