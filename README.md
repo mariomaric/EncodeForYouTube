@@ -10,7 +10,7 @@ This bash shell wrapper script will take **audio file as input** and **output vi
 
 Audio formats supported: MP2, MP3, LC-AAC, HE-AAC, AC3
 
-Output file will be slightly bigger than input file because quality of audio file remains unchanged and video resolution is set to smallest possible (i.e., 240p).
+Output file will be slightly bigger than input file because quality of audio file remains unchanged.
 
 ## How?
 
