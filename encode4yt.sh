@@ -23,7 +23,7 @@ filename=$(echo "$1" | sed "s/$ext//" | sed 's/[[:punct:]]/ /g')
 convert \
   -size "$size" \
   -background black -fill white \
-  -gravity center caption:"$filename" \
+  -gravity center label:"$filename" \
   "$bgr"
 
 # 3) Create video with background image and input audio file
