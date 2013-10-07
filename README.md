@@ -6,7 +6,9 @@ To be able to do that I must first [convert audio files into a format that will 
 
 ## What?
 
-This bash shell wrapper script will take almost any kind of **audio file as input** and **output video file** ready for upload to YouTube (e.g., via command-line script [youtube-upload](https://code.google.com/p/youtube-upload/ "youtube-upload")).
+This bash shell wrapper script will take **audio file as input** and **output video file** ready for upload to YouTube (e.g., via command-line script [youtube-upload](https://code.google.com/p/youtube-upload/ "youtube-upload")).
+
+Audio formats supported: MP2, MP3, LC-AAC, HE-AAC, AC3
 
 Output file will be slightly bigger than input file because quality of audio file remains unchanged and video resolution is set to smallest possible (i.e., 240p).
 
