@@ -16,7 +16,7 @@ Output file will be slightly bigger than input file because quality of audio fil
 
 ### USAGE
 
-    encode4yt input
+    $ encode4yt input
 
 Output file will be written in same directory where input file is located and also will have identical name, only different extension (i.e., **.mp4**).
 
