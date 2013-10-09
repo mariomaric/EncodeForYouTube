@@ -1,6 +1,5 @@
 #!/bin/bash
-# Requirements: sed, imagemagick, ffmpeg
-# Usage: encode4yt input
+# Info: http://mariomaric.net/EncodeForYouTube/
 
 # 1) Prepare output file:
 # 1.1) Find out extension of input audio file
