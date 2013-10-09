@@ -2,7 +2,7 @@
 
 Because I want to **upload audio files to YouTube**.
 
-To be able to do that I must first [convert audio files into a format that will work on YouTube](https://support.google.com/youtube/answer/1696878?hl=en&ref_topic=2888648 "Upload audio or image files @ YouTube upload instructions and settings help") and I want to do that through GNU/Linux command-line.
+To be able to do that I must first [convert audio files into a format that will work on YouTube] [1] and I want to do that through GNU/Linux command-line.
 
 ## WHAT?
 
@@ -45,3 +45,6 @@ This script is based on various sources from Internet, mostly from:
 - [FFmpeg documentation](http://ffmpeg.org/ffmpeg-all.html "FFmpeg documentation")
 - [ImageMagick v6 Examples -- Text to Image Handling](http://www.imagemagick.org/Usage/text/ "ImageMagick v6 Examples -- Text to Image Handling")
 - [Advanced encoding settings](https://support.google.com/youtube/answer/1722171?hl=en&ref_topic=2888648 "Advanced encoding settings @ YouTube upload instructions and settings help")
+
+[1]: https://support.google.com/youtube/answer/1696878?hl=en&ref_topic=2888648
+    "Upload audio or image files @ YouTube upload instructions and settings help"
