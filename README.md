@@ -6,7 +6,7 @@ To be able to do that I must first [convert audio files into a format that will 
 
 ## WHAT?
 
-This bash shell wrapper script will take **audio file as input** and **output video file** ready for upload to YouTube (e.g., via command-line script [youtube-upload] [2]).
+This bash shell wrapper script will take **an udio file as input** and **output a video file** ready for upload to YouTube (e.g., via command-line script [youtube-upload] [2]).
 
 Audio formats supported: MP2, MP3, LC-AAC, HE-AAC, AC3
 
@@ -28,7 +28,7 @@ Output file will be written in the same directory where input file is located an
 
 ### INSTALLATION
 
-Example commands are based on Ubuntu 12.04 LTS.
+Example commands listed below are based on Ubuntu 12.04 LTS.
 
 0. Install requirements, e.g.:
 
@@ -44,7 +44,7 @@ Example commands are based on Ubuntu 12.04 LTS.
 
 ## MISCELLANEOUS
 
-This script is based on various sources from Internet, mostly from:
+This script is based on various sources from the Internet, mostly from:
 
 - [EncodeforYouTube FFmpeg wiki page] [6]
 - [FFmpeg documentation] [7]
