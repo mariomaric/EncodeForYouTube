@@ -1,5 +1,5 @@
 #!/bin/bash
-# Info: http://mariomaric.net/EncodeForYouTube/
+# Info: https://github.com/mariomaric/EncodeForYouTube#readme
 
 # 1) Prepare output file:
 # 1.1) Find out extension of input audio file
