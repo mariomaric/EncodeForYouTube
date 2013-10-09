@@ -10,7 +10,7 @@ This bash shell wrapper script will take **audio file as input** and **output vi
 
 Audio formats supported: MP2, MP3, LC-AAC, HE-AAC, AC3
 
-Output file will be slightly bigger than input file because quality of audio file remains unchanged.
+Audio quality remains unchanged therefore output file will be slightly bigger than input file.
 
 ## HOW?
 
@@ -18,13 +18,24 @@ Output file will be slightly bigger than input file because quality of audio fil
 
     $ encode4yt input
 
-Output file will be written in same directory where input file is located and also will have identical name, only different extension (i.e., **.mp4**).
+Output file will be written in the same directory where input file is located and also will have identical name, only different extension (i.e., **.mp4**).
 
-## REQUIREMENTS
+### REQUIREMENTS
 
 1. [GNU sed](http://www.gnu.org/software/sed/ "GNU sed")
 2. [ImageMagick](http://www.imagemagick.org/ "ImageMagick")
 3. [FFmpeg](http://ffmpeg.org/ "FFmpeg")
+
+### INSTALLATION
+
+Example commands are based on Ubuntu 12.04 LTS.
+
+0. Install requirements, e.g.:
+    $ sudo apt-get install sed imagemagick ffmpeg
+1. Download and uncompress EncodeForYouTube, e.g.:
+    $ sudo wget -q https://github.com/mariomaric/EncodeForYouTube/archive/master.tar.gz -O - | tar -C /opt -xz
+2. Create a symbolic link to the `encode4yt.sh` in a directory that is already in your PATH, e.g.:
+    $ sudo ln -s /opt/EncodeForYouTube-master/encode4yt.sh /usr/local/bin/encode4yt
 
 ## MISCELLANEOUS
 
