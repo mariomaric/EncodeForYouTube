@@ -31,10 +31,15 @@ Output file will be written in the same directory where input file is located an
 Example commands are based on Ubuntu 12.04 LTS.
 
 0. Install requirements, e.g.:
+
         $ sudo apt-get install sed imagemagick ffmpeg
+
 1. Download and uncompress EncodeForYouTube, e.g.:
+
         $ sudo wget -q https://github.com/mariomaric/EncodeForYouTube/archive/master.tar.gz -O - | tar -C /opt -xz
+
 2. Create a symbolic link to the `encode4yt.sh` in a directory that is already in your PATH, e.g.:
+
         $ sudo ln -s /opt/EncodeForYouTube-master/encode4yt.sh /usr/local/bin/encode4yt
 
 ## MISCELLANEOUS
