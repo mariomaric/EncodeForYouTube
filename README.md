@@ -31,7 +31,9 @@ Output file will be written in the same directory where input file is located an
 Example commands listed below are based on Ubuntu 12.04 LTS.
 
 0. Install requirements, e.g.:
-
+        
+        $ sudo add-apt-repository ppa:jon-severinsson/ffmpeg
+        $ sudo apt-get update
         $ sudo apt-get install sed imagemagick ffmpeg
 
 1. Download and uncompress EncodeForYouTube, e.g.:
