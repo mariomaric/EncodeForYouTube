@@ -6,17 +6,17 @@
 ext="${1##*.}"
 
 # 1.2) Set up extension of output file to mp4
-out=$(echo "$1" | sed "s/$ext/mp4/")
+out="$(echo "$1" | sed "s/$ext/mp4/")"
 
 # 1.3) Set up size for background image and video
-size=1920x1080
+size="1920x1080"
 
 # 2) Prepare background image:
 # 2.1) Create variable with PNG image location
-bgr=/tmp/background.png
+bgr="/tmp/background.png"
 
 # 2.2) Remove extension and punctuation marks from filename
-filename=$(echo "$1" | sed "s/$ext//" | sed 's/[[:punct:]]/ /g')
+filename="$(echo "$1" | sed "s/$ext//" | sed 's/[[:punct:]]/ /g')"
 
 # 2.3) Create background image using filename as white text on black background
 convert \
