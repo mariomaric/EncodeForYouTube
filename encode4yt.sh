@@ -2,7 +2,7 @@
 # Info: https://github.com/mariomaric/EncodeForYouTube#readme
 
 # 1) Prepare output file:
-# 1.1) Find out extension of input audio file
+# 1.1) Find out extension of input audio file using Shell Parameter Expansion
 ext="${1##*.}"
 
 # 1.2) Set up extension of output file to mp4
