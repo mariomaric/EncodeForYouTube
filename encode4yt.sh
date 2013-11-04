@@ -33,7 +33,7 @@ ffmpeg \
     -f image2 -loop 1 -framerate 1 -i "$bgr" -i "$input" \
     -c:v libx264 -preset medium -tune stillimage -crf 18 \
     -c:a copy -shortest \
-    -pix_fmt yuv420p -s "$size" "$output"
+    -pix_fmt yuv420p -s "$size" "$output" -loglevel fatal
 
 # 4) Delete background image
 rm "$bgr"
