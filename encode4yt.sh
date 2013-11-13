@@ -25,7 +25,8 @@ filename="$(echo "$input" | sed "s/$ext//" | sed 's/[[:punct:]]/ /g')"
 convert \
     -size "$size" \
     -background black -fill white \
-    -gravity center label:"\"$filename\"" \
+    -depth 8 -type Grayscale \
+    -gravity center label:"$filename" \
     "$bgr"
 
 # 3) Create video with background image and input audio file
