@@ -3,32 +3,56 @@
 
 
 
-# 0) Initiate input variable
+### Initial steps
+
+# Initiate input variable
 input="$1"
 
-
-
-# 1) Prepare output file:
-
-# 1.1) Find out extension of input audio file using Shell Parameter Expansion
+# Find out extension of input audio file using Shell Parameter Expansion
 ext="${input##*.}"
 
-# 1.2) Set up extension of output file to mp4
-output="$(echo "$input" | sed "s/$ext/mp4/")"
+# Various checkups
+case "$ext" in
+    mp2|mp3 )
+        # If MP2 or MP3 audio file sampling rate is not 44.1 kHz re-encode it for output
+        if [[ "$(ffprobe -print_format flat -show_entries stream=codec_time_base -loglevel fatal "$input")" != *44100* ]]
+        then
+            acodec="libmp3lame -ar 44100"
+        else
+            acodec="copy"
+        fi
+        ;;
+    m4a|m4b|m4p|m4r|3gp|aac|ac3 )
+        acodec="copy"
+        ;;
+    * )
+        echo "Unsuported audio format."
+        echo "Info: https://github.com/mariomaric/EncodeForYouTube#readme"
+        exit 1
+        ;;
+esac
 
-# 1.3) Set up size for background image and video
+# Set up size for background image and video
 size="1920x1080"
 
 
 
-# 2) Prepare background image:
-# 2.1) Create variable with PNG image location
+### Prepare output file:
+
+# Set up extension of output file to mp4
+output="$(echo "$input" | sed "s/$ext/mp4/")"
+
+
+
+### Prepare background image:
+
+# Create variable with PNG image location
 bgr="/tmp/background.png"
 
-# 2.2) Remove extension and punctuation marks from filename
+# Remove extension and punctuation marks from filename
 filename="$(echo "$input" | sed "s/$ext//" | sed 's/[[:punct:]]/ /g')"
 
-# 2.3) Create background image using filename as white text on black background
+# Create background image using filename as white text on black background
 convert \
     -size "$size" \
     -background black -fill white \
@@ -38,16 +62,16 @@ convert \
 
 
 
-# 3) Create video with background image and input audio file
+### Create video with background image and input audio file
 ffmpeg \
     -f image2 -loop 1 -framerate 1 -i "$bgr" -i "$input" \
-    -c:v libx264 -preset medium -tune stillimage -crf 18 \
-    -c:a copy -shortest \
+    -codec:v libx264 -preset medium -tune stillimage -crf 18 \
+    -codec:a $acodec -shortest \
     -pix_fmt yuv420p -s "$size" "$output" -loglevel fatal
 
 
 
-# 4) Delete background image
+### Delete background image
 rm "$bgr"
 
 exit 0
