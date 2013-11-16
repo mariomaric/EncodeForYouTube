@@ -67,7 +67,7 @@ ffmpeg \
     -f image2 -loop 1 -framerate 1 -i "$bgr" -i "$input" \
     -codec:v libx264 -preset medium -tune stillimage -crf 18 \
     -codec:a $acodec -shortest \
-    -pix_fmt yuv420p -s "$size" "$output" -loglevel fatal
+    -pix_fmt yuv420p -s "$size" "$output" -loglevel error
 
 
 
