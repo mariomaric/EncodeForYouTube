@@ -6,7 +6,7 @@ To be able to do that I must first [convert audio files into a format that will 
 
 ## WHAT?
 
-This bash shell wrapper script will take **an audio file as input** and **output a video file** ready for upload to YouTube (e.g., via command-line script [youtube-upload] [2]).
+This bash shell wrapper script will take **an audio file as input** and **output a video file** ready for upload to YouTube (e.g. via command-line script [youtube-upload] [2]).
 
 Audio formats supported: MP2, MP3, LC-AAC, HE-AAC, AC3
 
@@ -16,9 +16,11 @@ Audio quality remains unchanged therefore output file will be slightly bigger th
 
 ### USAGE
 
-    $ encode4yt input
+    $ encode4yt INPUT [IMAGE]
 
-Output file will be written in the same directory where input file is located and also will have identical name, only different extension (i.e., **.mp4**).
+Output file will be written in the same directory where `INPUT` file is located and also will have identical name, only different extension i.e. **mp4**.
+
+You can provide as a second argument path to an `IMAGE` that you would like to use as a video background. Recommended `IMAGE` size is 1920x1080 pixels.
 
 ### REQUIREMENTS
 
@@ -52,6 +54,8 @@ This script is based on various sources from the Internet, mostly from:
 - [FFmpeg documentation] [7]
 - [ImageMagick v6 Examples -- Text to Image Handling] [8]
 - [Advanced encoding settings] [9]
+
+
 
 [1]: https://support.google.com/youtube/answer/1696878?hl=en&ref_topic=2888648
     "Upload audio or image files @ YouTube upload instructions and settings help"

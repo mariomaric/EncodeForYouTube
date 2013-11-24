@@ -46,19 +46,32 @@ output="$(echo "$input" | sed "s/$ext/mp4/")"
 
 ### Prepare background image:
 
-# Create variable with PNG image location
-bgr="/tmp/background.png"
+# Check if second argument is provided
+if [ -z "$2" ]
+then
+    # Create variable with PNG image location
+    bgr="/tmp/background.png"
 
-# Remove extension and punctuation marks from filename
-filename="$(echo "$input" | sed "s/$ext//" | sed 's/[[:punct:]]/ /g')"
+    # Remove extension and punctuation marks from filename
+    filename="$(echo "$input" | sed "s/$ext//" | sed 's/[[:punct:]]/ /g')"
 
-# Create background image using filename as white text on black background
-convert \
-    -size "$size" \
-    -background black -fill white \
-    -depth 8 -type Grayscale \
-    -gravity center label:"$filename" \
-    "$bgr"
+    # Create background image using filename as white text on black background
+    convert \
+        -size "$size" \
+        -background black -fill white \
+        -depth 8 -type Grayscale \
+        -gravity center label:"$filename" \
+        "$bgr"
+else
+    # Use second argument as a background image
+    if [ -f "$2" ]
+    then
+        bgr="$2"
+    else
+        echo "$2 not found."
+        exit 1
+    fi
+fi
 
 
 
@@ -72,6 +85,9 @@ ffmpeg \
 
 
 ### Delete background image
-rm "$bgr"
+if [ -z "$2" ]
+then
+    rm "$bgr"
+fi
 
 exit 0
